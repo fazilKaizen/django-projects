@@ -15,8 +15,8 @@ jobs:
     - name: Install SSH key
       uses: webfactory/ssh-agent@v0.8.0
       with:
-        ssh-private-key: ${{ secrets.SERVER_SSH_KEY }}
+        ssh-private-key: ${{ secrets.PRIVATE_KEY }}
 
     - name: Deploy to server
       run: |
-        ssh -o StrictHostKeyChecking=no ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_IP }} "bash /home/mohammed.fazil/django-projects/deploy.sh"
+        ssh -o StrictHostKeyChecking=no ${{ secrets.USERNAME }}@${{ secrets.HOST }} "bash /home/mohammed.fazil/django-projects/deploy.sh"
